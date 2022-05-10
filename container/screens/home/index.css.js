@@ -4,6 +4,7 @@ import Constants from "expo-constants";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
   },
 
   item: {
@@ -21,6 +22,13 @@ export const styles = StyleSheet.create({
   add_pet_pressable: {
     backgroundColor: "rgb(67,115,226)",
     padding: 10,
+  },
+
+  fab: {
+    position: "absolute",
+    margin: 16,
+    right: 0,
+    bottom: 0,
   },
 
   add_pet_pressable_text: { textAlign: "center", color: "white" },

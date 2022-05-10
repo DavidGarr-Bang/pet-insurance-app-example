@@ -1,5 +1,8 @@
 import * as React from "react";
-import { Text, View, FlatList, Pressable } from "react-native";
+import { View, FlatList, Pressable } from "react-native";
+
+import { Text, FAB } from "react-native-paper";
+
 import { styles } from "./index.css";
 import { useSelector } from "react-redux";
 import Item from "../../../components/rederitems/homeRenderItem";
@@ -17,12 +20,18 @@ export default function App(props) {
         keyExtractor={(item) => item.id}
       />
 
-      <Pressable
+      {/* <Pressable
         onPress={() => navigation.push("Add_Pet")}
         style={styles.add_pet_pressable}
       >
         <Text style={styles.add_pet_pressable_text}>ADD PET</Text>
-      </Pressable>
+      </Pressable> */}
+
+      <FAB
+        style={styles.fab}
+        icon="plus"
+        onPress={() => navigation.push("Add_Pet")}
+      />
     </View>
   );
 }

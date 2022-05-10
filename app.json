@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "pet insurance example",
-    "slug": "snack-0651e77e-a5a1-4f3b-8704-915f4230e0f1",
-    "version": "1.0.0",
+    "name": "Pet insurance example",
+    "slug": "pet-insurance-example",
+    "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconColor.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashScreen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#4373e2"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -19,12 +19,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/pet-icon.png",
+        "backgroundColor": "#4373e2"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+
+    "description": "Example Pet insurance application"
   }
 }

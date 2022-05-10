@@ -4,6 +4,7 @@ import Constants from "expo-constants";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
   },
   paragraph: {
     margin: 10,

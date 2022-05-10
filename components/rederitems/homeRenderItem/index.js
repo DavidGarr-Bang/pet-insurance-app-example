@@ -3,19 +3,30 @@ import { Text, View, FlatList, Pressable } from "react-native";
 import { styles } from "../../../container/screens/home/index.css";
 import { useNavigation } from "@react-navigation/native";
 
+import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+
 const Item = ({ id, name, animalType, insurance_status }) => {
   const navigation = useNavigation();
+
+  const LeftContent = (props) => (
+    <Avatar.Icon
+      {...props}
+      icon={animalType == "Cat" ? "cat" : animalType == "Dog" ? "dog" : "paw"}
+    />
+  );
+
   return (
-    <Pressable
-      onPress={() => navigation.push("Pet_Details", { id: id })}
-      style={styles.item}
-    >
-      <View style={{ borderBottomWidth: 1, paddingBottom: 4 }}>
-        <Text style={styles.name}>{animalType}</Text>
-      </View>
-      <Text style={styles.name}>Pet name: {name}</Text>
-      <Text style={styles.name}>Insured: {insurance_status}</Text>
-    </Pressable>
+    <>
+      <Pressable onPress={() => navigation.push("Pet_Details", { id: id })}>
+        <Card>
+          <Card.Title
+            title={name}
+            subtitle={"Insured: " + insurance_status}
+            left={LeftContent}
+          />
+        </Card>
+      </Pressable>
+    </>
   );
 };
 

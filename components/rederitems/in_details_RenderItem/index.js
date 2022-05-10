@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Pressable } from "react-native";
 import { styles } from "../../../container/screens/in_details/index.css";
-import { Avatar, Card, Title, Paragraph } from "react-native-paper";
+import { Avatar, Card, Text, Title, Paragraph } from "react-native-paper";
 
 const Item = ({ cover, onPress }) => (
   <Pressable
@@ -11,7 +11,7 @@ const Item = ({ cover, onPress }) => (
   >
     <Card style={styles.card}>
       <Card.Title
-        title={cover}
+        title={<Text style={{ fontSize: 16 }}>{cover}</Text>}
         right={() => (
           <Avatar.Icon
             style={{ backgroundColor: "rgba(0,0,0,0)" }}

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Text } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { add_pet_in } from "../../../utils/redux/reducers/pets";
 import { styles } from "./index.css";
@@ -19,6 +19,12 @@ export default function App(props) {
 
   const Pet = useSelector((state) => state.petInfo.pet_info);
 
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      title: Company.companyTitle,
+    });
+  }, [navigation]);
+
   const dispatch = useDispatch();
   const toast = useToast();
 
@@ -32,29 +38,29 @@ export default function App(props) {
       }),
     );
     toast.show("Insurance added to pet");
-    navigation.navigate("Home");
+    navigation.navigate("Pet_Details", { id: Pet.id });
   };
-
-  const insurance_options = [
-    { id: 0, cover: "Fully covered" },
-    { id: 1, cover: "Accident only" },
-  ];
 
   const renderItem = ({ item }) => <Item {...item} onPress={add_In} />;
 
   return (
     <View style={styles.container}>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Paragraph>Name</Paragraph>
-          <Title>{Company.companyTitle}</Title>
-          <Paragraph>Monthly price</Paragraph>
-          <Title>£{Company.monthyPrice}</Title>
-        </Card.Content>
-      </Card>
+      <Card.Content style={{ marginTop: 10 }}>
+        <Paragraph>Monthly price</Paragraph>
+        <Title>£{Company.monthyPrice}</Title>
+      </Card.Content>
+
+      <Card.Title
+        title={
+          <Text style={{ fontSize: 14, color: "rgba(0,0,0,0.6)" }}>
+            Available covers
+          </Text>
+        }
+        style={{ marginBottom: -10 }}
+      />
 
       <FlatList
-        data={insurance_options}
+        data={Company.insurance_options}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />

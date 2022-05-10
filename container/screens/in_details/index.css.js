@@ -4,11 +4,12 @@ import Constants from "expo-constants";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
   },
   card: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 20,
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
   },
 
   title: {

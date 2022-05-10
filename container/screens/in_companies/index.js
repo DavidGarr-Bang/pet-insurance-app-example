@@ -13,10 +13,28 @@ export default function App(props) {
   const Pet = useSelector((state) => state.petInfo.pet_info);
   const renderItem = ({ item }) => <Item {...item} />;
 
+  const LeftContent = (props) => (
+    <Avatar.Icon
+      {...props}
+      style={{ alignSelf: "center" }}
+      icon={
+        Pet.animalType == "Cat"
+          ? "cat"
+          : Pet.animalType == "Dog"
+          ? "dog"
+          : "paw"
+      }
+    />
+  );
+
   return (
     <View style={styles.container}>
       <Card>
-        <Card.Title title={Pet.name} />
+        <Card.Title
+          title={Pet.name}
+          subtitle={Pet.animalType}
+          left={LeftContent}
+        />
       </Card>
 
       <FlatList
